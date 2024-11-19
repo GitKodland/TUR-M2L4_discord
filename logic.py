@@ -1,8 +1,8 @@
 from translate import Translator
 from collections import defaultdict
 
-questions = {'Как тебя зовут': "Я супер-крутой-бот и мое предназначение помогать тебе!",
-             "Сколько тебе лет": "Это слишком философский вопрос"}
+questions = {"adın ne?": "ben süper havalı bir botum ve amacım size yardım etmek!",
+             "kaç yaşındasın?": "bu çok felsefi bir soru..."}
 
 class TextAnalysis():
     
@@ -13,7 +13,7 @@ class TextAnalysis():
         TextAnalysis.memory[owner].append(self)
 
         self.text = text
-        self.translation = self.__translate(self.text, "ru", "en")
+        self.translation = self.__translate(self.text, "tr", "en")
 
         if self.text in questions.keys():
             self.response = questions[self.text]
@@ -22,7 +22,7 @@ class TextAnalysis():
 
     
     def get_answer(self):
-        res = self.__translate("I don't know how to help", "en", "ru")
+        res = self.__translate("I don't know how to help", "en", "tr")
         return res
 
     def __translate(self, text, from_lang, to_lang):
@@ -31,4 +31,4 @@ class TextAnalysis():
             translation = translator.translate(text)
             return translation
         except:
-            return "Перевод не удался"
+            return "Çeviri girişimi başarısız oldu."
