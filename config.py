@@ -1,1 +1,1 @@
-token = "Здесь должен быть токен твоего бота"
+token = "Token'ı buraya girin"
